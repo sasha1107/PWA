@@ -70,3 +70,9 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+if ('setAppBadge' in navigator) {
+  navigator.setAppBadge(10).then(() => {
+    console.log('Badge is set!')
+  }
+  );
+}

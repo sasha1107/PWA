@@ -1,9 +1,10 @@
-export const sendPush = ({ title, onClick, options }) => {
+export const sendPush = async ({ title, onClick, options }) => {
   if (!('Notification' in window)) {
     console.warn('This browser does not support desktop notification');
     return;
   }
-  const permission = Notification.permission;
+  const permission = await Notification.requestPermission();
+
   switch (permission) {
     case 'granted':
       const notification = new Notification(title, options);

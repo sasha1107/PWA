@@ -43,6 +43,20 @@ const Home = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if ('Gyroscope' in window) {
+      let gyroscope = new window.Gyroscope({ frequency: 60 });
+      gyroscope.addEventListener('reading', () => {
+        alert(`Angular velocity along the X-axis ${gyroscope.x}`);
+        alert(`Angular velocity along the Y-axis ${gyroscope.y}`);
+        alert(`Angular velocity along the Z-axis ${gyroscope.z}`);
+      });
+      gyroscope.start();
+    } else {
+      alert('Gyroscope is not supported by your browser.');
+    }
+  }, []);
+
   return (
     <div className='App'>
       <header className='App-header'></header>

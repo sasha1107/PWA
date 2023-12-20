@@ -1,30 +1,36 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import { setBadge } from './utils';
 function App() {
   console.log(navigator.connection);
-
+  const [count, setCount] = React.useState(0);
   useEffect(() => {
-    if ('setAppBadge' in navigator) {
-      navigator.setAppBadge(10);
-    }
-  }, []);
+    setBadge(count);
+  }, [count]);
+  const [message, setMessage] = React.useState('');
+
   return (
     <div className='App'>
       <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
+        <button onClick={() => setCount((prev) => prev + 1)}>
+          Increase Badge Count
+        </button>
+
+        <button onClick={() => setCount((prev) => prev - 1)}>
+          Decrease Badge Count
+        </button>
+
+        <button
+          onClick={() => {
+            if (navigator.vibrate) {
+              navigator.vibrate(200);
+            }
+          }}
         >
-          Learn React
-        </a>
+          VIbrate
+        </button>
+        <p>{message}</p>
       </header>
     </div>
   );

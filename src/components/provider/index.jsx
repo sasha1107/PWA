@@ -1,8 +1,13 @@
 import React from 'react';
-import Permission from './Permission';
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'router';
 
 const Provider = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <RouterProvider router={router} future={{ v7_startTransition: true }}>
+      {children}
+    </RouterProvider>
+  );
 };
 
 export default Provider;

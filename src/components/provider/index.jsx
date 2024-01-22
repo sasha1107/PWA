@@ -1,13 +1,7 @@
-import React from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { router } from 'router';
+import React from "react";
 
 const Provider = ({ children }) => {
-  return (
-    <RouterProvider router={router} future={{ v7_startTransition: true }}>
-      {children}
-    </RouterProvider>
-  );
+  return <>{children}</>;
 };
 
 export default Provider;

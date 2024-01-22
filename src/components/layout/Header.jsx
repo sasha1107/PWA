@@ -1,11 +1,20 @@
-import React from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-red-100 flex justify-between">
-      <button>1</button>
+    <div className="flex h-12 items-center justify-between bg-red-100">
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        <ArrowBackIosNewIcon />
+      </button>
       <h1>logo</h1>
-      <button>2</button>
+      <div>a</div>
     </div>
   );
 };

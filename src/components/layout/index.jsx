@@ -1,12 +1,12 @@
-import React from "react";
-import TabBar from "./TabBar";
-import Header from "./Header";
+import React from 'react';
+import TabBar from './TabBar';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
-    <div className="w-dvw h-dvh flex flex-col">
+    <div className="flex h-dvh w-dvw flex-col">
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow p-4">{children}</main>
       <TabBar />
     </div>
   );

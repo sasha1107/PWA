@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes skeleton {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+:root {
+  --skeleton-gradient-from: rgba(0, 0, 0, 0.06);
+  --skeleton-gradient-to: rgba(0, 0, 0, 0.15);
+}
 
 @layer components {
   .card {
@@ -8,5 +21,18 @@
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.6');
     box-shadow: theme('boxShadow.xl');
+  }
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--skeleton-gradient-from) 25%,
+      var(--skeleton-gradient-to) 37%,
+      var(--skeleton-gradient-from) 63%
+    );
+    background-size: 400% 100%;
+    @apply rounded;
+  }
+  .skeleton.active {
+    @apply animate-skeleton;
   }
 }

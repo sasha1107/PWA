@@ -74,7 +74,7 @@ const MapPage = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App h-full">
       <Support support={support.geolocation} target="GPS" />
       <Support support={support.gyroscope} target="자이로스코프" />
       {support.gyroscope && (
@@ -129,13 +129,12 @@ const MapPage = () => {
       >
         내 위치 표시
       </button>
-      <div className="h-full w-full">
-        <Map // 지도를 표시할 Container
+      <Map
           center={state.center}
-          level={3} // 지도의 확대 레벨
+        level={3}
           style={{
-            width: '100%',
-            height: '100%'
+          width: '100vw - 1rem',
+          height: '500px'
           }}
         >
           {!state.isLoading && (
@@ -146,7 +145,6 @@ const MapPage = () => {
             </MapMarker>
           )}
         </Map>
-      </div>
     </div>
   );
 };

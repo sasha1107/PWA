@@ -6,6 +6,8 @@ import MapPage from 'pages/map';
 import Contact from 'pages/contact';
 import Share from 'pages/share';
 import WakeLock from 'pages/wakelock/index';
+import QrCode from 'pages/qrcode/index';
+import Vibrate from 'pages/vibrate/index';
 export const router = createBrowserRouter([
   {
     element: (
@@ -43,6 +45,16 @@ export const router = createBrowserRouter([
         path: '/wakelock',
         element: <WakeLock />,
         name: 'WakeLock'
+      },
+      {
+        path: '/qrcode',
+        element: <QrCode />,
+        name: 'QrCode'
+      },
+      {
+        path: '/vibrate',
+        element: <Vibrate />,
+        name: 'Vibrate'
       }
     ]
   }

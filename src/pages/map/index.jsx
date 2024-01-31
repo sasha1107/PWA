@@ -22,7 +22,7 @@ const MapPage = () => {
   });
 
   useEffect(() => {
-    if (navigator.geolocation) {
+    if ('geolocation' in navigator) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
       setSupport((prev) => ({
         ...prev,
@@ -95,8 +95,7 @@ const MapPage = () => {
       )}
       <button
         onClick={() => {
-          // permission
-          if (navigator.geolocation) {
+          if ('geolocation' in navigator) {
             // GeoLocation을 이용해서 접속 위치를 얻어옵니다
             navigator.geolocation.getCurrentPosition(
               (position) => {
@@ -130,21 +129,21 @@ const MapPage = () => {
         내 위치 표시
       </button>
       <Map
-          center={state.center}
+        center={state.center}
         level={3}
-          style={{
+        style={{
           width: '100vw - 1rem',
           height: '500px'
-          }}
-        >
-          {!state.isLoading && (
-            <MapMarker position={state.center}>
-              <div style={{ padding: '5px', color: '#000' }}>
-                {state.errMsg ? state.errMsg : '여기에 계신가요?!'}
-              </div>
-            </MapMarker>
-          )}
-        </Map>
+        }}
+      >
+        {!state.isLoading && (
+          <MapMarker position={state.center}>
+            <div style={{ padding: '5px', color: '#000' }}>
+              {state.errMsg ? state.errMsg : '여기에 계신가요?!'}
+            </div>
+          </MapMarker>
+        )}
+      </Map>
     </div>
   );
 };

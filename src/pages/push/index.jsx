@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { setBadge, sendPush } from 'utils';
+import { setBadge } from 'utils';
 import AddAlertIcon from '@mui/icons-material/AddAlert';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
@@ -27,9 +27,24 @@ const PushHistory = () => {
       }));
     }
   }, []);
+
   useEffect(() => {
     setBadge(count);
   }, [count]);
+
+  const sendNotification = () => {
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(title, {
+        body
+      });
+      notification.onclick = () => {
+        window.open('https://pwa-sasha1107.vercel.app/');
+      };
+    } else {
+      alert('권한이 없습니다.');
+    }
+  };
+
   return (
     <div className="">
       <Support support={support.notification} target="Notification" />
@@ -73,17 +88,7 @@ const PushHistory = () => {
         </div>
         <button
           className="block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-white"
-          onClick={async () => {
-            sendPush({
-              title: title || '제목 없음',
-              onClick: () => alert('clicked'),
-              options: {
-                body: body || '본문 없음',
-                icon: 'https://avatars.githubusercontent.com/u/78977003?v=4',
-                image: 'https://web.dev/images/authors/petelepage.jpg?hl=ko'
-              }
-            });
-          }}
+          onClick={sendNotification}
         >
           Send Push
           <AddAlertIcon />

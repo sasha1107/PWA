@@ -8,6 +8,8 @@ import Share from 'pages/share';
 import WakeLock from 'pages/wakelock/index';
 import QrCode from 'pages/qrcode/index';
 import Vibrate from 'pages/vibrate/index';
+import Speech from 'pages/speech/index';
+
 export const router = createBrowserRouter([
   {
     element: (
@@ -55,6 +57,11 @@ export const router = createBrowserRouter([
         path: '/vibrate',
         element: <Vibrate />,
         name: 'Vibrate'
+      },
+      {
+        path: '/speech',
+        element: <Speech />,
+        name: 'Speech'
       }
     ]
   }

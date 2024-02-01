@@ -56,8 +56,13 @@ const MapPage = () => {
     <div className="App h-full">
       <Support support={support.geolocation} />
       <button
+        className="primary"
         onClick={() => {
           if ('geolocation' in navigator) {
+            setState((prev) => ({
+              ...prev,
+              isLoading: true
+            }));
             // GeoLocation을 이용해서 접속 위치를 얻어옵니다
             navigator.geolocation.getCurrentPosition(
               (position) => {
@@ -90,6 +95,7 @@ const MapPage = () => {
       >
         내 위치 표시
       </button>
+      {state.isLoading && <div>로딩중...</div>}
       <Map
         center={state.center}
         level={3}

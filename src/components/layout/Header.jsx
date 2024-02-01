@@ -5,7 +5,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <header className="flex h-[48px] shrink-0 items-center bg-slate-500">
+    <header className="sticky top-0 flex h-[48px] shrink-0 items-center bg-slate-500">
       <button
         className="pl-2"
         onClick={() => {

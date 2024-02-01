@@ -31,7 +31,7 @@ const TabBar = () => {
     }
   ];
   return (
-    <footer className="grid grid-cols-4 divide-x">
+    <footer className="fixed bottom-0 grid w-full grid-cols-4 divide-x bg-white">
       {routes.map((route, index) => {
         return (
           <NavLink

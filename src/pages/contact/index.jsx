@@ -29,9 +29,9 @@ const Contact = () => {
         연락처 가져오기
       </button>
       {contacts.length > 0 && (
-        <div>
+        <div className="flex flex-col gap-4">
           {contacts.map((contact) => (
-            <div className="card flex gap-4" key={contact.name}>
+            <div className="card flex gap-2" key={contact.name}>
               <div className="text-semibold">{contact.name}</div>
               <div className="flex flex-grow flex-col gap-2">
                 <a href={`tel:${contact.tel}`}>{contact.tel}</a>

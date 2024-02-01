@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex h-dvh w-dvw flex-col">
       <Header />
-      <main className="flex-grow p-4">{children}</main>
+      <main className="flex-grow p-4 pb-[80px]">{children}</main>
       <TabBar />
     </div>
   );

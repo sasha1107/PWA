@@ -5,16 +5,16 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex h-12 items-center justify-between bg-red-100">
+    <div className="flex h-[48px] shrink-0 items-center bg-slate-500">
       <button
+        className="pl-2"
         onClick={() => {
           navigate(-1);
         }}
       >
-        <ArrowBackIosNewIcon />
+        <ArrowBackIosNewIcon className="text-slate-50" />
       </button>
-      <h1>logo</h1>
-      <div>a</div>
+      <h1 className="mr-[48px] flex-grow text-center text-slate-50">PWA App</h1>
     </div>
   );
 };

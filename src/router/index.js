@@ -10,7 +10,7 @@ import QrCode from 'pages/qrcode/index';
 import Vibrate from 'pages/vibrate/index';
 import Speech from 'pages/speech/index';
 import Network from 'pages/network/index';
-
+import MyPage from 'pages/my/index';
 export const router = createBrowserRouter([
   {
     element: (
@@ -68,6 +68,11 @@ export const router = createBrowserRouter([
         path: '/network',
         element: <Network />,
         name: 'Network'
+      },
+      {
+        path: '/my',
+        element: <MyPage />,
+        name: 'My'
       }
     ]
   }

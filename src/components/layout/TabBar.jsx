@@ -1,20 +1,38 @@
 import React from 'react';
-import { router } from 'router';
 import { NavLink } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import PersonIcon from '@mui/icons-material/Person';
 
 const TabBar = () => {
-  const elements = router.routes[0].children;
   const icons = {
     Home: <HomeIcon />,
     Map: <GpsFixedIcon />,
-    Push: <NotificationsIcon />
+    Push: <NotificationsIcon />,
+    MyPage: <PersonIcon />
   };
+  const routes = [
+    {
+      path: '/',
+      name: 'Home'
+    },
+    {
+      path: '/map',
+      name: 'Map'
+    },
+    {
+      path: '/push',
+      name: 'Push'
+    },
+    {
+      path: '/my',
+      name: 'MyPage'
+    }
+  ];
   return (
-    <nav className="grid h-10 grid-cols-4 divide-x">
-      {elements.map((route, index) => {
+    <nav className="grid grid-cols-4 divide-x">
+      {routes.map((route, index) => {
         return (
           <NavLink
             key={index}
@@ -22,14 +40,14 @@ const TabBar = () => {
             className={({ isActive, isPending, isTransitioning }) =>
               [
                 isPending ? 'text-slate-300' : '',
-                isActive ? 'text-blue-500' : '',
+                isActive ? 'text-slate-500' : '',
                 isTransitioning ? 'text-red-500' : '',
-                'flex items-center justify-center'
+                'flex h-[56px] items-center justify-center border'
               ].join(' ')
             }
             unstable_viewTransitions
           >
-            {icons[route.name]}
+            <span className="text-sm">{icons[route.name]}</span>
           </NavLink>
         );
       })}

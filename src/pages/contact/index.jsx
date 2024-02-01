@@ -22,21 +22,25 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <Support support={support} />
 
-      <button onClick={onClickBtn}>연락처</button>
-      <div>
-        {contacts.map((contact) => (
-          <div className="card flex justify-between" key={contact.name}>
-            <div>{contact.name}</div>
-            <div>
-              <a href={`tel:+82${contact.tel}`}>{contact.tel}</a>
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      <button className="primary" onClick={onClickBtn}>
+        연락처 가져오기
+      </button>
+      {contacts.length > 0 && (
+        <div>
+          {contacts.map((contact) => (
+            <div className="card flex gap-4" key={contact.name}>
+              <div className="text-semibold">{contact.name}</div>
+              <div className="flex flex-grow flex-col gap-2">
+                <a href={`tel:${contact.tel}`}>{contact.tel}</a>
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

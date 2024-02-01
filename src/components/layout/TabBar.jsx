@@ -31,7 +31,7 @@ const TabBar = () => {
     }
   ];
   return (
-    <nav className="grid grid-cols-4 divide-x">
+    <footer className="grid grid-cols-4 divide-x">
       {routes.map((route, index) => {
         return (
           <NavLink
@@ -51,7 +51,7 @@ const TabBar = () => {
           </NavLink>
         );
       })}
-    </nav>
+    </footer>
   );
 };
 

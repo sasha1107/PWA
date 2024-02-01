@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 
 const Gyroscope = () => {
   const [support, setSupport] = useState(false);
-  const [sensor, setSensor] = useState(null); // [x, y, z
+  const [sensor, setSensor] = useState({
+    x: 0,
+    y: 0,
+    z: 0
+  }); // [x, y, z
   useEffect(() => {
     if ('Gyroscope' in window) {
       setSupport(true);

@@ -5,7 +5,7 @@ const Home = () => {
   const elements = router.routes[0].children;
   return (
     <>
-      <nav className="grid h-10 grid-cols-4 divide-x">
+      <nav className="grid grid-cols-4 gap-2">
         {elements.map((route, index) => {
           return (
             <NavLink
@@ -16,7 +16,7 @@ const Home = () => {
                   isPending ? 'text-slate-300' : '',
                   isActive ? 'text-blue-500' : '',
                   isTransitioning ? 'text-red-500' : '',
-                  'flex items-center justify-center'
+                  'flex aspect-square items-center justify-center border'
                 ].join(' ')
               }
               unstable_viewTransitions

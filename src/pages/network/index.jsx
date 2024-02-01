@@ -18,13 +18,13 @@ const Network = () => {
     <div className="flex flex-col gap-4">
       <Support support={support} />
       {connection && (
-        <div className="card flex flex-col gap-2 divide-y">
+        <div className="card flex flex-col gap-4 divide-y">
           <h2 className="text-lg font-bold">네트워크 정보</h2>
 
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <span>type</span>
-              <span>{connection.type}</span>
+              <span className="font-semibold">type</span>
+              <span className="tag">{connection.type}</span>
             </div>
             <p className="bg-slate-50 p-1 text-sm">
               Returns the type of connection a device is using to communicate
@@ -43,8 +43,8 @@ const Network = () => {
           </div>
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <span>downlink</span>
-              <span>{connection.downlink}</span>
+              <span className="font-semibold">downlink</span>
+              <span className="tag">{connection.downlink}</span>
             </div>
             <p className="bg-slate-50 p-1 text-sm">
               Returns the effective bandwidth estimate in megabits per second,
@@ -54,8 +54,8 @@ const Network = () => {
 
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <span>downlinkMax</span>
-              <span>{connection.downlinkMax}</span>
+              <span className="font-semibold">downlinkMax</span>
+              <span className="tag">{connection.downlinkMax}</span>
             </div>
             <p className="bg-slate-50 p-1 text-sm">
               Returns the maximum downlink speed, in megabits per second (Mbps),
@@ -65,8 +65,8 @@ const Network = () => {
 
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <span>effectiveType</span>
-              <span>{connection.effectiveType}</span>
+              <span className="font-semibold">effectiveType</span>
+              <span className="tag">{connection.effectiveType}</span>
             </div>
             <p className="bg-slate-50 p-1 text-sm">
               Returns the effective type of the connection meaning one of
@@ -83,8 +83,8 @@ const Network = () => {
 
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <span>rtt</span>
-              <span>{connection.rtt}</span>
+              <span className="font-semibold">rtt</span>
+              <span className="tag">{connection.rtt}</span>
             </div>
             <p className="bg-slate-50 p-1 text-sm">
               Returns the estimated effective round-trip time of the current
@@ -94,8 +94,8 @@ const Network = () => {
 
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <span>saveData</span>
-              <span>{connection.saveData.toString()}</span>
+              <span className="font-semibold">saveData</span>
+              <span className="tag">{connection.saveData.toString()}</span>
             </div>
             <p className="bg-slate-50 p-1 text-sm">
               Returns <code>true</code> if the user has set a reduced data usage

@@ -53,10 +53,10 @@ const MapPage = () => {
   }, []);
 
   return (
-    <div className="App h-full">
+    <div className="App flex h-full flex-col gap-4">
       <Support support={support.geolocation} />
       <button
-        className="primary"
+        className="primary block w-full"
         onClick={() => {
           if ('geolocation' in navigator) {
             setState((prev) => ({
@@ -96,22 +96,24 @@ const MapPage = () => {
         내 위치 표시
       </button>
       {state.isLoading && <div>로딩중...</div>}
-      <Map
-        center={state.center}
-        level={3}
-        style={{
-          width: '100vw - 1rem',
-          height: '500px'
-        }}
-      >
-        {!state.isLoading && (
-          <MapMarker position={state.center}>
-            <div style={{ padding: '5px', color: '#000' }}>
-              {state.errMsg ? state.errMsg : '여기에 계신가요?!'}
-            </div>
-          </MapMarker>
-        )}
-      </Map>
+      <div className="flex-grow">
+        <Map
+          center={state.center}
+          level={3}
+          style={{
+            width: '100vw - 1rem',
+            height: '100%'
+          }}
+        >
+          {!state.isLoading && (
+            <MapMarker position={state.center}>
+              <div style={{ padding: '5px', color: '#000' }}>
+                {state.errMsg ? state.errMsg : '여기에 계신가요?!'}
+              </div>
+            </MapMarker>
+          )}
+        </Map>
+      </div>
     </div>
   );
 };

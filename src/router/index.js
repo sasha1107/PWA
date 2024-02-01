@@ -12,6 +12,7 @@ import Speech from 'pages/speech/index';
 import Network from 'pages/network/index';
 import MyPage from 'pages/my/index';
 import Bluetooth from 'pages/bluetooth/index';
+import Gyroscope from 'pages/gyroscope/index';
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,11 @@ export const router = createBrowserRouter([
         path: '/bluetooth',
         element: <Bluetooth />,
         name: 'Bluetooth'
+      },
+      {
+        path: '/gyroscope',
+        element: <Gyroscope />,
+        name: 'Gyroscope'
       }
     ]
   }

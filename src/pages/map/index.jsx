@@ -15,11 +15,6 @@ const MapPage = () => {
     geolocation: false,
     gyroscope: false
   });
-  const [gyroscope, setGyroscope] = useState({
-    x: 0,
-    y: 0,
-    z: 0
-  });
 
   useEffect(() => {
     if ('geolocation' in navigator) {
@@ -57,42 +52,9 @@ const MapPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if ('Gyroscope' in window) {
-      setSupport((prev) => ({
-        ...prev,
-        gyroscope: true
-      }));
-      let gyroscope = new window.Gyroscope({ frequency: 60 });
-      gyroscope.addEventListener('reading', () => {
-        setGyroscope(gyroscope);
-      });
-      gyroscope.start();
-    } else {
-      // alert('Gyroscope is not supported by your browser.');
-    }
-  }, []);
-
   return (
     <div className="App h-full">
-      <Support support={support.geolocation} target="GPS" />
-      <Support support={support.gyroscope} target="자이로스코프" />
-      {support.gyroscope && (
-        <div className="flex flex-col">
-          <div>
-            <span>Angular velocity along the X-axis</span>
-            <span className="ml-4 text-red-300">{gyroscope.x}</span>
-          </div>
-          <div>
-            <span>Angular velocity along the Y-axis</span>
-            <span className="ml-4 text-red-300">{gyroscope.y}</span>
-          </div>
-          <div>
-            <span>Angular velocity along the Z-axis</span>
-            <span className="ml-4 text-red-300">{gyroscope.z}</span>
-          </div>
-        </div>
-      )}
+      <Support support={support.geolocation} />
       <button
         onClick={() => {
           if ('geolocation' in navigator) {

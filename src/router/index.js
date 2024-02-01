@@ -11,6 +11,8 @@ import Vibrate from 'pages/vibrate/index';
 import Speech from 'pages/speech/index';
 import Network from 'pages/network/index';
 import MyPage from 'pages/my/index';
+import Bluetooth from 'pages/bluetooth/index';
+
 export const router = createBrowserRouter([
   {
     element: (
@@ -73,6 +75,11 @@ export const router = createBrowserRouter([
         path: '/my',
         element: <MyPage />,
         name: 'My'
+      },
+      {
+        path: '/bluetooth',
+        element: <Bluetooth />,
+        name: 'Bluetooth'
       }
     ]
   }

@@ -9,6 +9,7 @@ import WakeLock from 'pages/wakelock/index';
 import QrCode from 'pages/qrcode/index';
 import Vibrate from 'pages/vibrate/index';
 import Speech from 'pages/speech/index';
+import Network from 'pages/network/index';
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,11 @@ export const router = createBrowserRouter([
         path: '/speech',
         element: <Speech />,
         name: 'Speech'
+      },
+      {
+        path: '/network',
+        element: <Network />,
+        name: 'Network'
       }
     ]
   }

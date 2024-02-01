@@ -17,10 +17,7 @@
 
 @layer components {
   .card {
-    background-color: theme('colors.white');
-    border-radius: theme('borderRadius.lg');
-    padding: theme('spacing.6');
-    box-shadow: theme('boxShadow.xl');
+    @apply rounded border bg-white p-4 shadow-md;
   }
   .skeleton {
     background: linear-gradient(
@@ -52,5 +49,8 @@
   }
   label {
     @apply mb-2 block text-sm font-bold text-gray-700;
+  }
+  code {
+    @apply rounded bg-gray-200 px-2 py-1 text-xs;
   }
 }

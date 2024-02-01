@@ -33,9 +33,9 @@ export const router = createBrowserRouter([
         name: 'Push'
       },
       {
-        path: '/map',
+        path: '/gps',
         element: <MapPage />,
-        name: 'Map'
+        name: 'Gps'
       },
       {
         path: '/contact',

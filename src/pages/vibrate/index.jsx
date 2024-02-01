@@ -25,12 +25,18 @@ const PatternMaker = () => {
   return (
     <div className="flex flex-col gap-4">
       <Support support={support} />
-      <button className="primary" onClick={playVibration} disabled={!support}>
-        Play
-      </button>
-      <button className="secondary" onClick={stopVibration} disabled={!support}>
-        Stop
-      </button>
+      <div className="grid grid-cols-2 gap-2">
+        <button className="primary" onClick={playVibration} disabled={!support}>
+          Play
+        </button>
+        <button
+          className="secondary"
+          onClick={stopVibration}
+          disabled={!support}
+        >
+          Stop
+        </button>
+      </div>
     </div>
   );
 };

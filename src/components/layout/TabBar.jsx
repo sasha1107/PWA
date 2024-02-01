@@ -18,7 +18,7 @@ const TabBar = () => {
       name: 'Home'
     },
     {
-      path: '/map',
+      path: '/gps',
       name: 'Map'
     },
     {

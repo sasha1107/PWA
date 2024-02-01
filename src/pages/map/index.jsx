@@ -95,7 +95,7 @@ const MapPage = () => {
       >
         내 위치 표시
       </button>
-      {state.isLoading && <div>로딩중...</div>}
+      {state.isLoading && <div>내 위치 로딩중...</div>}
       <div className="flex-grow">
         <Map
           center={state.center}

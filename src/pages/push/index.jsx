@@ -46,25 +46,34 @@ const PushHistory = () => {
   };
 
   return (
-    <div className="">
+    <div className="flex flex-col gap-4">
       <Support support={support.notification} target="Notification" />
       <Support support={support.badge} target="Badge" />
       <div className="grid grid-cols-2 gap-2">
-        <div className="card">
-          <button onClick={() => setCount((prev) => prev + 1)}>
-            Increase Badge Count
-            <AddCircleIcon />
-          </button>
-        </div>
-        <div className="card">
-          <button onClick={() => setCount((prev) => prev - 1)}>
-            Decrease Badge Count
-            <RemoveCircleIcon />
-          </button>
-        </div>
+        <button
+          className="primary flex items-center justify-center gap-2"
+          onClick={() => setCount((prev) => prev + 1)}
+        >
+          Increase Badge Count
+          <AddCircleIcon />
+        </button>
+        <button
+          className="secondary flex items-center justify-center gap-2"
+          onClick={() => setCount((prev) => prev - 1)}
+        >
+          Decrease Badge Count
+          <RemoveCircleIcon />
+        </button>
       </div>
       <div className="card">
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
+          <h2
+            className="
+          mb-1 text-lg font-semibold
+        "
+          >
+            푸시 알림 내용 입력
+          </h2>
           <div>
             <label htmlFor="1">Title</label>
             <input
@@ -85,14 +94,14 @@ const PushHistory = () => {
               }}
             />
           </div>
+          <button
+            className="primary flex items-center justify-center gap-2"
+            onClick={sendNotification}
+          >
+            Send Push
+            <AddAlertIcon />
+          </button>
         </div>
-        <button
-          className="block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-white"
-          onClick={sendNotification}
-        >
-          Send Push
-          <AddAlertIcon />
-        </button>
       </div>
     </div>
   );

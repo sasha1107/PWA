@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Support } from 'components';
 
 const PatternMaker = () => {
   const [support, setSupport] = useState(false);
-  const [pattern, setPattern] = useState([200, 100, 200]);
+  const [pattern, setPattern] = useState([
+    100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100
+  ]); // Vibrate 'SOS' in Morse.
 
   const stopVibration = () => {
     navigator.vibrate(0);
@@ -21,12 +23,12 @@ const PatternMaker = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <Support support={support} />
-      <button onClick={playVibration} disabled={!support}>
+      <button className="primary" onClick={playVibration} disabled={!support}>
         Play
       </button>
-      <button onClick={stopVibration} disabled={!support}>
+      <button className="secondary" onClick={stopVibration} disabled={!support}>
         Stop
       </button>
     </div>

@@ -41,4 +41,16 @@
   button.primary {
     @apply rounded bg-indigo-500 px-4 py-2 font-bold text-white hover:bg-indigo-600;
   }
+  button.secondary {
+    @apply rounded bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-600;
+  }
+  .tag {
+    @apply rounded bg-gray-200 px-2 py-1 text-sm;
+  }
+  select {
+    @apply rounded-md border border-gray-300 p-2 py-1 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500;
+  }
+  label {
+    @apply mb-2 block text-sm font-bold text-gray-700;
+  }
 }

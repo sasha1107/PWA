@@ -16,11 +16,17 @@ const Share = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-4">
       <Support support={support} />
 
-      <h1>공유</h1>
       <div className="border p-2">
+        <h2
+          className="
+          mb-3 text-lg font-semibold
+        "
+        >
+          공유할 데이터 입력
+        </h2>
         <div className="flex flex-col gap-1">
           <label htmlFor="title">title</label>
           <input

@@ -10,16 +10,20 @@ const WakeLock = () => {
     }
   }, []);
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <Support support={support} />
 
       {wakeLock && (
         <div>
           <div>type: {wakeLock.type}</div>
-          <div>released: {wakeLock.released ? 'true' : 'false'}</div>
+          <div>
+            released:{' '}
+            <span className="tag">{wakeLock.released.toString()}</span>
+          </div>
         </div>
       )}
       <button
+        className="primary block w-full"
         onClick={async () => {
           try {
             if (!navigator.wakeLock) {
@@ -36,6 +40,7 @@ const WakeLock = () => {
       </button>
       {wakeLock && !wakeLock.released && (
         <button
+          className="secondary block w-full"
           onClick={async () => {
             try {
               if (!navigator.wakeLock) {
@@ -48,7 +53,7 @@ const WakeLock = () => {
             }
           }}
         >
-          해제
+          잠금 해제
         </button>
       )}
     </div>
